@@ -1,5 +1,8 @@
 import Banner from "../components/Banner";
 import Categorycard from "../components/Categorycard";
+import Productscard from "../components/Productscard";
+import products from "../data/products";
+
 
 function Home() {
   return (
@@ -20,6 +23,35 @@ function Home() {
         <Categorycard title="Jeans" />
         <Categorycard title="Watches" />
       </div>
+      <h2>Trending Products</h2>
+
+<div className="products">
+
+{
+
+products.map((item)=>{
+
+return(
+
+<Productscard
+
+key={item.id}
+
+name={item.name}
+
+price={item.price}
+
+rating={item.rating}
+
+/>
+
+);
+
+})
+
+}
+
+</div>
     </>
   );
 }
