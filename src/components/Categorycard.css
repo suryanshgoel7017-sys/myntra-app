@@ -1,0 +1,19 @@
+.card {
+  width: 180px;
+  height: 180px;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
