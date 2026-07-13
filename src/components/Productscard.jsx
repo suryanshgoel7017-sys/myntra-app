@@ -1,11 +1,21 @@
 import "./Productscard.css";
-function Productscard(props){
-  return (<div className="product">
-    <h3>{props.name}</h3>
-    <h3>₹{props.price}</h3>
-    <p>⭐ {props.rating}</p>
+function Productscard({
+   name,
 
-    <button>Add To Cart</button>
+  price,
+
+  rating,
+
+  addToCart
+})
+{
+
+  return (<div className="product">
+    <h3>{name}</h3>
+    <h3>₹{price}</h3>
+    <p>⭐ {rating}</p>
+
+    <button  onClick={addToCart}>Add To Cart</button>
 
   </div>
   );

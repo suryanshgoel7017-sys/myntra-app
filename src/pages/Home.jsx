@@ -3,8 +3,12 @@ import Categorycard from "../components/Categorycard";
 import Productscard from "../components/Productscard";
 import products from "../data/products";
 
+function Home({ setCartCount }) {
 
-function Home() {
+  function addToCart() {
+    setCartCount((previousCount) => previousCount + 1);
+  }
+
   return (
     <>
       <Banner />
@@ -23,35 +27,20 @@ function Home() {
         <Categorycard title="Jeans" />
         <Categorycard title="Watches" />
       </div>
+
       <h2>Trending Products</h2>
 
-<div className="products">
-
-{
-
-products.map((item)=>{
-
-return(
-
-<Productscard
-
-key={item.id}
-
-name={item.name}
-
-price={item.price}
-
-rating={item.rating}
-
-/>
-
-);
-
-})
-
-}
-
-</div>
+      <div className="products">
+        {products.map((item) => (
+          <Productscard
+            key={item.id}
+            name={item.name}
+            price={item.price}
+            rating={item.rating}
+            addToCart={addToCart}
+          />
+        ))}
+      </div>
     </>
   );
 }
