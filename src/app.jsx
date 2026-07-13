@@ -3,12 +3,24 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 
 function App() {
-  const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
+   function removeFromCart(id) {
+    setCartItems(
+      cartItems.filter((item) => {
+        return item.id !== id;
+      })
+    );
+  }
+
 
   return (
-    <>
-      <Navbar />
-      <Home setCartCount={setCartCount} />
+  <>
+      <Navbar cartCount={cartItems.length} />
+
+      <Home
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+      />
     </>
   );
 }

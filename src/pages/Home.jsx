@@ -3,10 +3,20 @@ import Categorycard from "../components/Categorycard";
 import Productscard from "../components/Productscard";
 import products from "../data/products";
 
-function Home({ setCartCount }) {
+function Home({ cartItems, setCartItems }) {
 
-  function addToCart() {
-    setCartCount((previousCount) => previousCount + 1);
+  function addToCart(products) {
+   setCartItems((previousItems)=>{
+
+return [
+
+...previousItems,
+
+product
+
+];
+
+});
   }
 
   return (
@@ -37,7 +47,7 @@ function Home({ setCartCount }) {
             name={item.name}
             price={item.price}
             rating={item.rating}
-            addToCart={addToCart}
+             addToCart={() => addToCart(item)}
           />
         ))}
       </div>
